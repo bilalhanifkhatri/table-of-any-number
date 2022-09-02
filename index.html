@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table Of Any Number</title>
+    <style>
+      body {
+        background-color: rgb(242, 233, 172);
+      }
+      form,
+      p {
+        border: 5px dashed rgb(216, 231, 119);
+        border-radius: 25%;
+        animation: mymove 3s infinite;
+        animation-direction: alternate;
+      }
+      @keyframes mymove {
+        30% {
+          border-color: lightblue;
+        }
+        20% {
+          border-color: brown;
+        }
+        50% {
+          border-color: green;
+        }
+      }
+      label,
+      input,
+      button {
+        font-size: 1.3rem;
+      }
+      p {
+        text-align: center;
+        font-size: 1.8rem;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <form onsubmit="showTable(); return false">
+      <h1 id="firstHeading">Table Of Any Number</h1>
+      <div id="firstInput">
+        <label for="num">Number :</label>
+        <input
+          type="number"
+          name="num"
+          id="num"
+          placeholder="Please Enter a Number"
+        />
+      </div>
+      <div id="secondInput">
+        <label for="range">Range :</label>
+        <input
+          type="number"
+          name="range"
+          id="range"
+          value="10"
+          placeholder="Range till .."
+        />
+      </div>
+      <button type="submit">Show Table</button>
+    </form>
+    <p id="result"></p>
+    <script>
+      function showTable() {
+        let num = +document.querySelector("#num").value;
+        let range = +document.querySelector("#range").value;
+        let array = [];
+        for (let i = 0; i < range; i++) {
+          array[i] = `${num} X ${i + 1} = ${num * (i + 1)}`;
+        }
+        // document.getElementById("#result").style.display = "block"
+        document.querySelector("#result").innerHTML = array.join(`<br>`);
+      }
+    </script>
+  </body>
+</html>
