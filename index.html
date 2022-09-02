@@ -72,6 +72,7 @@
     </form>
     <p id="result"></p>
     <script>
+      document.querySelector("#result").style.display = "none"
       function showTable() {
         let num = +document.querySelector("#num").value;
         let range = +document.querySelector("#range").value;
@@ -79,9 +80,7 @@
         for (let i = 0; i < range; i++) {
           array[i] = `${num} X ${i + 1} = ${num * (i + 1)}`;
         }
-        // document.getElementById("#result").style.display = "block"
+        document.querySelector("#result").style.display = ''
         document.querySelector("#result").innerHTML = array.join(`<br>`);
       }
-    </script>
-  </body>
-</html>
+    </script>                                                                         
